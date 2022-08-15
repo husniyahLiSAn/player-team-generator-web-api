@@ -1,0 +1,37 @@
+﻿// /////////////////////////////////////////////////////////////////////////////
+// PLEASE DO NOT RENAME OR REMOVE ANY OF THE CODE BELOW. 
+// YOU CAN ADD YOUR CODE TO THIS FILE TO EXTEND THE FEATURES TO USE THEM IN YOUR WORK.
+// /////////////////////////////////////////////////////////////////////////////
+
+
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+
+namespace WebApi.Entities
+{
+    public class PlayerSkill
+    {
+        [Key]
+        public int Id { get; set; }
+        public string Skill { get; set; }
+        public int Value { get; set; }
+
+        [ForeignKey("Player")]
+        public int PlayerId { get; set; }
+        public Player Player { get; set; }
+    }
+    public class PlayerSkills
+    {
+        public int Id { get; set; }
+        public string Skill { get; set; }
+        public int Value { get; set; }
+        public int PlayerId { get; set; }
+    }
+
+    public class PlayerSkillVM
+    {
+        public string Skill { get; set; }
+        public int Value { get; set; }
+    }
+}
